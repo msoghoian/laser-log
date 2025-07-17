@@ -1,0 +1,15 @@
+export const EventType = {
+  userFormSubmit: 'user-form-submit',
+  settingsPageLoad: 'settings-page-load',
+  browseForLightBurn: 'browse-for-lightburn',
+  lightBurnPathSet: 'lightburn-path-set',
+  appStarted: 'app-started',
+  helpPageLoad: 'help-page-load',
+  homePageLoad: 'home-page-load',
+  logFileLoad: 'log-file-load',
+  logsPageLoad: 'logs-page-load',
+  backButtonClick: 'back-button-click',
+  userEndSessionNotes: 'user-end-session-notes',
+  helpButtonClick: 'help-button-click',
+  settingsButtonClick: 'settings-button-click',
+};

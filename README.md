@@ -53,7 +53,7 @@ export default tseslint.config({
 })
 ```
 
-In main.js
+In main.cjs
 ```js
 import { ipcMain } from 'electron'
 import { spawn } from 'child_process'
