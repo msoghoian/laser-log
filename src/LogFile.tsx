@@ -51,9 +51,9 @@ const LogFile = () => {
 
   const containerStyles = css`
     height: 100%;
-    max-height: 100%;
+    max-height: calc(100vh - 64px);
     width: 100%;
-    overflow: hidden;
+    overflow-y: scroll;
   `;
   const gridRowStyles = css`
     border-bottom: 1px solid #3c4345;
@@ -61,7 +61,6 @@ const LogFile = () => {
     margin: 0;
     font-size: 12px;
     color: #aaa;
-    overflow: scroll;
   `;
 
   return (

@@ -97,25 +97,14 @@ const Help = (): ReactElement => {
               mattsoghoian@gmail.com
             </Link>
             <br />
-            Or check out the project on{' '}
             <Link
-              href="#"
+              href="https://github.com/msoghoian/laser-log"
+              target="_blank"
               sx={(theme: Theme) => ({
                 color: theme.palette.info.main,
               })}
-              css={css`
-                &:hover svg {
-                  transform: scale(1.15);
-                  transition: all 0.2s ease;
-                }
-              `}
             >
-              GitHub{' '}
-              <GitHub
-                css={css`
-                  font-size: 20px;
-                `}
-              />
+              https://github.com/msoghoian/laser-log
             </Link>
           </Typography>
         </Grid>

@@ -9,7 +9,6 @@ const launchApp = require('./launchApp.cjs');
 // __dirname workaround in ES module
 const preloadPath = path.join(__dirname, 'preload.cjs');
 const basePath = path.join(app.getPath('userData'), 'laser-log/');
-console.log('base path:', basePath);
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -50,7 +49,6 @@ ipcMain.handle('select-lightburn-exe', async () => {
         ? [{ name: 'Executable', extensions: ['exe'] }]
         : undefined,
   });
-  console.log('Result:', result);
 
   if (result.canceled || result.filePaths.length === 0) {
     return null;
@@ -76,7 +74,6 @@ ipcMain.on('log-event', (event, payload) => {
 });
 
 ipcMain.on('launch-lightburn', (event, payload) => {
-  console.log('payload from icpMain handler', payload);
   launchApp(payload.lightburnPath, (status) => {
     // Send status update to all windows
     BrowserWindow.getAllWindows().forEach((window) => {
@@ -86,7 +83,6 @@ ipcMain.on('launch-lightburn', (event, payload) => {
 });
 
 ipcMain.handle('exit-laser-log', () => {
-  console.log('exit-laser-log');
   writeLogEvent('navigation', 'exit-laser-log', 'Exiting Laser Log');
   app.quit();
 });
@@ -147,11 +143,9 @@ ipcMain.handle('list-log-files', () => {
 });
 
 ipcMain.handle('open-log-file', (event, fileName) => {
-  console.log('main.cjs - opening log file', fileName);
   try {
     const filePath = path.join(basePath, 'logs', fileName);
     const contents = fs.readFileSync(filePath, 'utf-8');
-    // console.log('main.cjs - log file contents', contents);
     return contents
       .split('\n')
       .map((line) => {
