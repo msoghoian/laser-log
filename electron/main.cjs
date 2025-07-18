@@ -26,11 +26,13 @@ function createWindow() {
 
   // DEV mode
   const isDev = !app.isPackaged;
+  console.log('isDev:', isDev);
 
   if (isDev) {
     win.loadURL('http://localhost:5173');
   } else {
     const indexPath = path.join(__dirname, '..', 'dist', 'index.html');
+    console.log('Loading file from:', indexPath);
     win.loadFile(`file://${indexPath}`);
   }
 }
@@ -134,11 +136,13 @@ ipcMain.on('open-logs-window', async (event, fileName) => {
   });
 
   const isDev = !app.isPackaged;
+  console.log('isDev:', isDev);
 
   if (isDev) {
     logsWindow.loadURL(`http://localhost:5173/#/logFile/${fileName}`);
   } else {
     const indexPath = path.join(__dirname, '..', 'dist', 'index.html');
+    console.log('Loading file from:', indexPath);
     logsWindow.loadFile(`file://${indexPath}#/logFile/${fileName}`);
   }
 });
