@@ -16,6 +16,7 @@ function createWindow() {
     height: 620,
     resizable: false,
     fullscreenable: false,
+    icon: path.resolve(__dirname, '../assets/lightburn.ico'),
     webPreferences: {
       preload: preloadPath,
       contextIsolation: true,
