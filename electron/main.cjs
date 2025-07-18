@@ -150,7 +150,9 @@ ipcMain.on('open-logs-window', async (event, fileName) => {
     logsWindow.loadURL(`http://localhost:5173/#/logFile/${fileName}`);
   } else {
     const indexHtmlPath = path.resolve(__dirname, '../dist/index.html');
-    logsWindow.loadFile(`file://${indexHtmlPath}#/logFile/${fileName}`);
+    logsWindow.loadFile(indexHtmlPath, {
+      hash: `/logFile/${fileName}`,
+    });
   }
 });
 
