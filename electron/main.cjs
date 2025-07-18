@@ -31,13 +31,21 @@ function createWindow() {
   if (isDev) {
     win.loadURL('http://localhost:5173');
   } else {
-    const indexPath = path.join(__dirname, '..', 'dist', 'index.html');
-    console.log('Loading file from:', indexPath);
-    win.loadFile(`file://${indexPath}`);
+    const indexHtmlPath = path.resolve(__dirname, '../dist/index.html');
+    win.loadFile(indexHtmlPath);
   }
 }
 
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection:', reason);
+});
+
 app.whenReady().then(() => {
+  console.log('Electron app ready');
   createWindow();
 
   app.on('activate', () => {
@@ -141,9 +149,8 @@ ipcMain.on('open-logs-window', async (event, fileName) => {
   if (isDev) {
     logsWindow.loadURL(`http://localhost:5173/#/logFile/${fileName}`);
   } else {
-    const indexPath = path.join(__dirname, '..', 'dist', 'index.html');
-    console.log('Loading file from:', indexPath);
-    logsWindow.loadFile(`file://${indexPath}#/logFile/${fileName}`);
+    const indexHtmlPath = path.resolve(__dirname, '../dist/index.html');
+    logsWindow.loadFile(`file://${indexHtmlPath}#/logFile/${fileName}`);
   }
 });
 
