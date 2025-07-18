@@ -24,7 +24,14 @@ function createWindow() {
   });
 
   // DEV mode
-  win.loadURL('http://localhost:5173');
+  const isDev = !app.isPackaged;
+
+  if (isDev) {
+    win.loadURL('http://localhost:5173');
+  } else {
+    const indexPath = path.join(__dirname, 'dist', 'index.html');
+    win.loadURL(`file://${indexPath}`);
+  }
 }
 
 app.whenReady().then(() => {
@@ -125,7 +132,14 @@ ipcMain.on('open-logs-window', async (event, fileName) => {
     },
   });
 
-  logsWindow.loadURL(`http://localhost:5173/#/logFile/${fileName}`);
+  const isDev = !app.isPackaged;
+
+  if (isDev) {
+    logsWindow.loadURL(`http://localhost:5173/#/logFile/${fileName}`);
+  } else {
+    const indexPath = path.join(__dirname, 'dist', 'index.html');
+    logsWindow.loadURL(`file://${indexPath}#/logFile/${fileName}`);
+  }
 });
 
 ipcMain.handle('list-log-files', () => {
