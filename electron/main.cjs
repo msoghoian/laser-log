@@ -30,7 +30,7 @@ function createWindow() {
   if (isDev) {
     win.loadURL('http://localhost:5173');
   } else {
-    const indexPath = path.join(__dirname, 'dist', 'index.html');
+    const indexPath = path.join(__dirname, '..', 'dist', 'index.html');
     win.loadFile(`file://${indexPath}`);
   }
 }
@@ -138,7 +138,7 @@ ipcMain.on('open-logs-window', async (event, fileName) => {
   if (isDev) {
     logsWindow.loadURL(`http://localhost:5173/#/logFile/${fileName}`);
   } else {
-    const indexPath = path.join(__dirname, 'dist', 'index.html');
+    const indexPath = path.join(__dirname, '..', 'dist', 'index.html');
     logsWindow.loadFile(`file://${indexPath}#/logFile/${fileName}`);
   }
 });
