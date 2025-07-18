@@ -30,8 +30,11 @@
       "target": "dmg"
     },
     "win": {
-      "target": "nsis",
-      "icon": "assets/lightburn.ico"
+      "icon": "lightburn.ico"
+    },
+    "nsis": {
+      "installerIcon": "lightburn.ico",
+      "uninstallerIcon": "lightburn.ico"
     }
   },
   "dependencies": {
