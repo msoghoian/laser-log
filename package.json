@@ -30,11 +30,11 @@
       "target": "dmg"
     },
     "win": {
-      "icon": "lightburn512x512.png"
+      "icon": "lightburn512x512.ico"
     },
     "nsis": {
-      "installerIcon": "lightburn512x512.png",
-      "uninstallerIcon": "lightburn512x512.png"
+      "installerIcon": "lightburn512x512.ico",
+      "uninstallerIcon": "lightburn512x512.ico"
     }
   },
   "dependencies": {
