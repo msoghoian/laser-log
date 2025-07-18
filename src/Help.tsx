@@ -3,7 +3,7 @@ import 'react';
 import { Box, Grid, Link, Tooltip, Typography } from '@mui/material';
 import { type Theme } from '@mui/material/styles';
 import { type ReactElement, useEffect } from 'react';
-import { GitHub, Lightbulb } from '@mui/icons-material';
+import { Lightbulb } from '@mui/icons-material';
 import { css } from '@emotion/react';
 import { NavBar } from './components/NavBar.tsx';
 import { EventType } from './types.tsx';
